@@ -1,0 +1,21 @@
+<resources>
+    <!--Commons-->
+    <string name="app_name" translatable="false">Simple score calculator</string>
+    <!--Questions-->
+    <string name="question_gameTitle">What is the name of the game?</string>
+    <string name="question_playersCount">How many players will there be?</string>
+    <!--Hints-->
+    <string name="hint_gameTitle"> </string>
+    <string name="hint_blankGameTitle">The name is blank!</string>
+    <string name="hint_playerName">Input player\'s name</string>
+    <string name="hint_playerNameBlank">Player\'s name is blank!</string>
+
+    <!--Buttons-->
+    <string name="button_next">Next</string>
+    <string name="button_back">Back</string>
+    <string name="button_add">Add</string>
+    <!--menu buttons-->
+    <string name="menu_about">About</string>
+    <!--context menu buttons-->
+    <string name="contextMenu_clear">Clear</string>
+</resources>
