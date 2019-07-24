@@ -9,11 +9,15 @@
     <string name="hint_blankGameTitle">Название игры отсутствует!</string>
     <string name="hint_playerName">Введите имя игрока</string>
     <string name="hint_playerNameBlank">Имя игрока пустое!</string>
+    <string name="hint_insert_point">Количество очков</string>
+    <string name="hint_players_list_isEmpty">Список игроков пуст!</string>
     <!--Buttons-->
     <string name="button_next">Далее</string>
     <string name="button_back">Назад</string>
     <string name="button_add">Добавить</string>
-
+    <!--Buttons desc-->
+    <string name="desc_button_minus">Вычесть число</string>
+    <string name="desc_button_plus">Прибавить число</string>
     <!--menu buttons-->
     <string name="menu_about">О программе</string>
     <!--context menu buttons-->

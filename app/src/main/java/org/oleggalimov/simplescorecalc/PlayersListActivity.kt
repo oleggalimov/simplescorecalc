@@ -1,5 +1,6 @@
 package org.oleggalimov.simplescorecalc
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
@@ -44,18 +45,33 @@ class PlayersListActivity : AppCompatActivity() {
 
         //вешаем листенеры на кнопки
         val onClickListenerImpl = View.OnClickListener  (
+
             fun(view: View?) {
                 when (view?.id) {
                     addPlayerButton.id -> {
                         if (playerNameView.text.isBlank()) {
-                            Toast.makeText(applicationContext, getString(R.string.hint_playerNameBlank), Toast.LENGTH_SHORT).show()
+                                Toast.makeText(applicationContext, getString(R.string.hint_playerNameBlank), Toast.LENGTH_SHORT).show()
+                            return
                         } else {
                             playersList.add(playerNameView.text.toString())
                             playerNameView.text=null
                             playersListAdapter.notifyDataSetChanged()
+                            return
                         }
                     }
-                    nextButton.id -> TODO()
+                    nextButton.id -> {
+                        if (playersList.isEmpty()) {
+                            Toast.makeText(applicationContext, getString(R.string.hint_players_list_isEmpty), Toast.LENGTH_SHORT).show()
+                            return
+                        } else {
+                            val intent = Intent("org.oleggalimov.simplescorecalc.actions.game")
+                            intent.putExtra("gameTitle", gameTitle)
+                            intent.putExtra("playersList", playersList.toTypedArray())
+                            startActivity(intent)
+                            return
+                        }
+
+                    }
                     backButton.id -> this.finish()
                 }
             }
@@ -63,6 +79,7 @@ class PlayersListActivity : AppCompatActivity() {
         )
         addPlayerButton.setOnClickListener(onClickListenerImpl)
         backButton.setOnClickListener (onClickListenerImpl)
+        nextButton.setOnClickListener (onClickListenerImpl)
 
 
     }

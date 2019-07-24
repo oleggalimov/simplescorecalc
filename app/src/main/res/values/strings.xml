@@ -9,11 +9,16 @@
     <string name="hint_blankGameTitle">The name is blank!</string>
     <string name="hint_playerName">Input player\'s name</string>
     <string name="hint_playerNameBlank">Player\'s name is blank!</string>
+    <string name="hint_insert_point">Input points</string>
+    <string name="hint_players_list_isEmpty">Player\'s list is empty!</string>
 
     <!--Buttons-->
     <string name="button_next">Next</string>
     <string name="button_back">Back</string>
     <string name="button_add">Add</string>
+    <!--Buttons desc-->
+    <string name="desc_button_minus">Subtract number</string>
+    <string name="desc_button_plus">Add number</string>
     <!--menu buttons-->
     <string name="menu_about">About</string>
     <!--context menu buttons-->
