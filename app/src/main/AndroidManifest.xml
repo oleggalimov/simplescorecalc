@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="org.oleggalimov.simplescorecalc">
-
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -12,25 +12,37 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".MainActivity"
+                android:name=".activities.MainActivity"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PlayersListActivity">
+        <activity android:name=".activities.PlayersListActivity">
             <intent-filter>
                 <!--action сообщает ос какое действие вы хотите выполнить, ос подбирает приложение-->
                 <action android:name="org.oleggalimov.simplescorecalc.actions.createplayerslist"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".GameActivity">
+        <activity android:name=".activities.GameActivity">
             <intent-filter>
                 <!--action сообщает ос какое действие вы хотите выполнить, ос подбирает приложение-->
                 <action android:name="org.oleggalimov.simplescorecalc.actions.game"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ChangeScoreActivity">
+            <intent-filter>
+                <!--action сообщает ос какое действие вы хотите выполнить, ос подбирает приложение-->
+                <action android:name="org.oleggalimov.simplescorecalc.actions.changescore"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.FinishActivity">
+            <intent-filter>
+                <action android:name="org.oleggalimov.simplescorecalc.actions.finishgame"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>

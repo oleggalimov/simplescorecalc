@@ -1,4 +1,4 @@
-package org.oleggalimov.simplescorecalc
+package org.oleggalimov.simplescorecalc.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
+import org.oleggalimov.simplescorecalc.R
 
 
 /*
@@ -42,7 +43,7 @@ class Adapter (private val playersList: MutableList<String>) : RecyclerView.Adap
     class ViewHolder (itemView: View) : RecyclerView.ViewHolder (itemView) {
         var textView: TextView? =null
         init {
-            textView = itemView.findViewById(R.id.playerName)
+            textView = itemView.findViewById(R.id.player)
         }
     }
 

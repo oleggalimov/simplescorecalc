@@ -1,16 +1,18 @@
-package org.oleggalimov.simplescorecalc
+package org.oleggalimov.simplescorecalc.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.ContextMenu
-import android.view.MenuItem
+import android.os.Vibrator
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.oleggalimov.simplescorecalc.adapters.Adapter
+import org.oleggalimov.simplescorecalc.R
+import org.oleggalimov.simplescorecalc.utilities.toastWithVibration
 
 class PlayersListActivity : AppCompatActivity() {
     private lateinit var gameTitleView:TextView
@@ -19,6 +21,7 @@ class PlayersListActivity : AppCompatActivity() {
     private lateinit var  nextButton:Button
     private lateinit var  backButton:Button
     private lateinit var  playersListRecView:RecyclerView
+    private lateinit var vibrator:Vibrator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val playersList = mutableListOf<String>()
@@ -27,11 +30,12 @@ class PlayersListActivity : AppCompatActivity() {
 
         //получаем представления
         gameTitleView = findViewById(R.id.gameTitle)
-        playerNameView = findViewById(R.id.playerName)
+        playerNameView = findViewById(R.id.player)
         addPlayerButton = findViewById(R.id.addPlayerButton)
         nextButton = findViewById(R.id.nextButton)
         backButton = findViewById(R.id.backButton)
         playersListRecView = findViewById(R.id.playersList)
+        vibrator= this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         //меняем название игры
         val gameTitle = intent.getStringExtra("gameTitle")
         /*
@@ -49,19 +53,24 @@ class PlayersListActivity : AppCompatActivity() {
             fun(view: View?) {
                 when (view?.id) {
                     addPlayerButton.id -> {
-                        if (playerNameView.text.isBlank()) {
-                                Toast.makeText(applicationContext, getString(R.string.hint_playerNameBlank), Toast.LENGTH_SHORT).show()
-                            return
-                        } else {
-                            playersList.add(playerNameView.text.toString())
-                            playerNameView.text=null
-                            playersListAdapter.notifyDataSetChanged()
-                            return
+                        val playerName = playerNameView.text.toString()
+                        when {
+                            playerName.isBlank() -> {
+                                toastWithVibration(applicationContext, getString(R.string.hint_playerNameBlank), true)
+                                return
+                            }
+                            playersList.contains(playerName) -> return
+                            else -> {
+                                playersList.add(playerName)
+                                playerNameView.text=null
+                                playersListAdapter.notifyDataSetChanged()
+                                return
+                            }
                         }
                     }
                     nextButton.id -> {
                         if (playersList.isEmpty()) {
-                            Toast.makeText(applicationContext, getString(R.string.hint_players_list_isEmpty), Toast.LENGTH_SHORT).show()
+                            toastWithVibration(applicationContext, getString(R.string.hint_players_list_isEmpty),true)
                             return
                         } else {
                             val intent = Intent("org.oleggalimov.simplescorecalc.actions.game")
@@ -83,15 +92,15 @@ class PlayersListActivity : AppCompatActivity() {
 
 
     }
-    override fun onCreateContextMenu(contextMenu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
-        menuInflater.inflate(R.menu.context_main, contextMenu)
-//        menu?.add(R.string.contextMenu_clear)
-        super.onCreateContextMenu(contextMenu, v, menuInfo)
-    }
-    //реагируем на нажатие контекстного меню
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        Toast.makeText(applicationContext, "Выбрано контекстное меню", Toast.LENGTH_SHORT).show()
-        return super.onContextItemSelected(item)
-    }
+//    override fun onCreateContextMenu(contextMenu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+//        menuInflater.inflate(R.menu.context_main, contextMenu)
+////        menu?.add(R.string.contextMenu_clear)
+//        super.onCreateContextMenu(contextMenu, v, menuInfo)
+//    }
+//    //реагируем на нажатие контекстного меню
+//    override fun onContextItemSelected(item: MenuItem): Boolean {
+//        Toast.makeText(applicationContext, "Выбрано контекстное меню", Toast.LENGTH_SHORT).show()
+//        return super.onContextItemSelected(item)
+//    }
 
 }

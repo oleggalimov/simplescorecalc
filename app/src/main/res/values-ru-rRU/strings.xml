@@ -1,6 +1,8 @@
 <resources>
     <!--Commons-->
     <string name="app_name" translatable="false">Простой калькулятор счета</string>
+    <string name="final_congratulations">Игрок PLAYER_NAME выиграл!\nСчет: PLAYER_SCORE\nПоздравляем!</string>
+    <string name="final_congratulations_draw">Ничья.\nСчет: PLAYER_SCORE\nПобедила дружба!</string>
     <!--Questions-->
     <string name="question_gameTitle">Как называется игра?</string>
     <string name="question_playersCount">Сколько будет игроков?</string>
@@ -11,15 +13,23 @@
     <string name="hint_playerNameBlank">Имя игрока пустое!</string>
     <string name="hint_insert_point">Количество очков</string>
     <string name="hint_players_list_isEmpty">Список игроков пуст!</string>
+    <string name="hint_empty_points">Введите количество очков</string>
     <!--Buttons-->
     <string name="button_next">Далее</string>
     <string name="button_back">Назад</string>
     <string name="button_add">Добавить</string>
+    <string name="button_confirm">Подтвердить</string>
+    <string name="button_cancel">Отмена</string>
+    <string name="button_restart">Заново</string>
+    <string name="button_finish">Завершить</string>
     <!--Buttons desc-->
     <string name="desc_button_minus">Вычесть число</string>
     <string name="desc_button_plus">Прибавить число</string>
+    <string name="desc_button_restart">Начать заново</string>
     <!--menu buttons-->
     <string name="menu_about">О программе</string>
     <!--context menu buttons-->
     <string name="contextMenu_clear">Очистить</string>
+    <!--content description-->
+    <string name="star_desc">Поздравляю!</string>
 </resources>

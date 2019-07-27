@@ -1,6 +1,8 @@
 <resources>
     <!--Commons-->
     <string name="app_name" translatable="false">Simple score calculator</string>
+    <string name="final_congratulations">Player PLAYER_NAME wins!\nScore: PLAYER_SCORE\nCongratulations!</string>
+    <string name="final_congratulations_draw">Draw.\nScore: PLAYER_SCORE\nFriendship wins!!</string>
     <!--Questions-->
     <string name="question_gameTitle">What is the name of the game?</string>
     <string name="question_playersCount">How many players will there be?</string>
@@ -11,16 +13,24 @@
     <string name="hint_playerNameBlank">Player\'s name is blank!</string>
     <string name="hint_insert_point">Input points</string>
     <string name="hint_players_list_isEmpty">Player\'s list is empty!</string>
+    <string name="hint_empty_points">Insert the points</string>
 
     <!--Buttons-->
     <string name="button_next">Next</string>
     <string name="button_back">Back</string>
     <string name="button_add">Add</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_restart">Restart</string>
+    <string name="button_finish">Finish</string>
     <!--Buttons desc-->
     <string name="desc_button_minus">Subtract number</string>
     <string name="desc_button_plus">Add number</string>
+    <string name="desc_button_restart">Begin new game</string>
     <!--menu buttons-->
     <string name="menu_about">About</string>
     <!--context menu buttons-->
     <string name="contextMenu_clear">Clear</string>
+    <!--content description-->
+    <string name="star_desc">Congratulations!</string>
 </resources>
