@@ -3,7 +3,6 @@ package org.oleggalimov.simplescorecalc.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Vibrator
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -13,12 +12,17 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.oleggalimov.simplescorecalc.R
 import org.oleggalimov.simplescorecalc.utilities.toastWithVibration
+import android.widget.Toast
+
+
 
 class MainActivity : AppCompatActivity() {
+    private var isBackPressed:Long=0
     private var gameTitleText="NoName"
     private lateinit var gameTitle:TextView
     private lateinit var nextButton: Button
     private lateinit var mainConstraintLayout: ConstraintLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,25 +58,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
     //создаем меню
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_main, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
     //реагируем на выбор элемента меню
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
 //        return super.onOptionsItemSelected(item)
 //    }
     //Создаем контекстное меню
-    override fun onCreateContextMenu(contextMenu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
-        menuInflater.inflate(R.menu.context_main, contextMenu)
-//        menu?.add(R.string.contextMenu_clear)
-        super.onCreateContextMenu(contextMenu, v, menuInfo)
-    }
-    //реагируем на нажатие контекстного меню
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        this.gameTitleText=""
-        this.gameTitle.text=null
-        return super.onContextItemSelected(item)
+//    override fun onCreateContextMenu(contextMenu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+//        menuInflater.inflate(R.menu.context_main, contextMenu)
+////        menu?.add(R.string.contextMenu_clear)
+//        super.onCreateContextMenu(contextMenu, v, menuInfo)
+//    }
+//    //реагируем на нажатие контекстного меню
+//    override fun onContextItemSelected(item: MenuItem): Boolean {
+//        this.gameTitleText=""
+//        this.gameTitle.text=null
+//        return super.onContextItemSelected(item)
+//    }
+
+
+    override fun onBackPressed() {
+        if (isBackPressed + 2000 > System.currentTimeMillis()) {
+            System.exit(0)
+        } else {
+            toastWithVibration(this, getString(R.string.hint_exit),false)
+        }
+        isBackPressed = System.currentTimeMillis()
     }
 }

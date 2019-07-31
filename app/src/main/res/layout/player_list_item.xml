@@ -8,7 +8,7 @@
     <ImageView
             android:layout_width="8dp"
             android:layout_height="32dp"
-            app:srcCompat="@mipmap/ic_launcher_round"
+            app:srcCompat="@mipmap/ic_player"
             android:id="@+id/playerAvatarInGame"
             android:layout_weight="1"
             android:contentDescription="@string/hint_playerName"

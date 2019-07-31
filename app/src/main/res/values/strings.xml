@@ -14,6 +14,7 @@
     <string name="hint_insert_point">Input points</string>
     <string name="hint_players_list_isEmpty">Player\'s list is empty!</string>
     <string name="hint_empty_points">Insert the points</string>
+    <string name="hint_exit">Press "Back" again to exit</string>
 
     <!--Buttons-->
     <string name="button_next">Next</string>
