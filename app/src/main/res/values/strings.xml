@@ -1,6 +1,6 @@
 <resources>
     <!--Commons-->
-    <string name="app_name" translatable="false">Simple score calculator</string>
+    <string name="app_name" translatable="false">Score, pls!</string>
     <string name="final_congratulations">Player PLAYER_NAME wins!\nScore: PLAYER_SCORE\nCongratulations!</string>
     <string name="final_congratulations_draw">Draw.\nScore: PLAYER_SCORE\nFriendship wins!!</string>
     <!--Questions-->

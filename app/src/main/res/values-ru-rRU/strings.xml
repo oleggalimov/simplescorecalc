@@ -1,6 +1,6 @@
 <resources>
     <!--Commons-->
-    <string name="app_name" translatable="false">Простой калькулятор счета</string>
+    <string name="app_name" translatable="false">Счет!</string>
     <string name="final_congratulations">Игрок PLAYER_NAME выиграл!\nСчет: PLAYER_SCORE\nПоздравляем!</string>
     <string name="final_congratulations_draw">Ничья.\nСчет: PLAYER_SCORE\nПобедила дружба!</string>
     <!--Questions-->
