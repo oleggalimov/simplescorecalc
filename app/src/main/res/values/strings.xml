@@ -13,7 +13,8 @@
     <string name="hint_playerNameBlank">Player\'s name is blank!</string>
     <string name="hint_insert_point">Input points</string>
     <string name="hint_players_list_isEmpty">Player\'s list is empty!</string>
-    <string name="hint_empty_points">Insert the points</string>
+    <string name="hint_points_empty">Insert the points</string>
+    <string name="hint_empty_inappropriate">Inappropriate number</string>
     <string name="hint_exit">Press "Back" again to exit</string>
 
     <!--Buttons-->

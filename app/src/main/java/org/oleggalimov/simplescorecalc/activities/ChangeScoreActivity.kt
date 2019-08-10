@@ -9,6 +9,9 @@ import androidx.appcompat.widget.AppCompatImageButton
 import org.oleggalimov.simplescorecalc.utilities.toastWithVibration
 import android.content.Intent
 import org.oleggalimov.simplescorecalc.R
+import org.oleggalimov.simplescorecalc.enums.OperationType
+import java.lang.Exception
+import java.lang.UnsupportedOperationException
 
 
 class ChangeScoreActivity:AppCompatActivity() {
@@ -45,22 +48,19 @@ class ChangeScoreActivity:AppCompatActivity() {
         val onClickListenerImpl = View.OnClickListener  (
             fun(view: View?) {
                 when (view?.id) {
-                    addPointButton.id-> {
+                    addPointButton.id, removePointButton.id -> {
                         val points = this.inputPoints.text.toString()
+
                         if (points.isBlank()) {
-                            toastWithVibration(applicationContext, getString(R.string.hint_empty_points), true)
+                            toastWithVibration(applicationContext, getString(R.string.hint_points_empty), true)
                         } else {
-                            score+=points.toInt()
-                            playerScore.text= score.toString()
-                            inputPoints.text = null
-                        }
-                    }
-                    removePointButton.id-> {
-                        val points = this.inputPoints.text.toString()
-                        if (points.isBlank()) {
-                            toastWithVibration(applicationContext, getString(R.string.hint_empty_points), true)
-                        } else {
-                            score-=points.toInt()
+                            score = try {
+                                val opType= if (view.id==addPointButton.id) {OperationType.ADD_POINTS} else {OperationType.REMOVE_POINTS}
+                                changeScore (score, points, opType)
+                            } catch (ex:Exception) {
+                                toastWithVibration(applicationContext, getString(R.string.hint_empty_inappropriate), true)
+                                score
+                            }
                             playerScore.text= score.toString()
                             inputPoints.text = null
                         }
@@ -82,6 +82,17 @@ class ChangeScoreActivity:AppCompatActivity() {
         addPointButton.setOnClickListener (onClickListenerImpl)
         cancelButton.setOnClickListener (onClickListenerImpl)
         confirmButton.setOnClickListener (onClickListenerImpl)
+    }
+    @Throws(NumberFormatException::class)
+    fun changeScore(previousScore:Int, points:String, operationType:OperationType):Int {
+        val longPrevious =previousScore.toLong()
+        val longPoints = points.toLong()
+        val res:Long = when (operationType) {
+            OperationType.ADD_POINTS -> longPrevious + longPoints
+            OperationType.REMOVE_POINTS -> longPrevious - longPoints
+        }
+        if (res>Int.MAX_VALUE || res<Int.MIN_VALUE) {throw UnsupportedOperationException()}
+        return res.toInt()
     }
 
 }

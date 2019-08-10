@@ -13,7 +13,8 @@
     <string name="hint_playerNameBlank">Имя игрока пустое!</string>
     <string name="hint_insert_point">Количество очков</string>
     <string name="hint_players_list_isEmpty">Список игроков пуст!</string>
-    <string name="hint_empty_points">Введите количество очков</string>
+    <string name="hint_points_empty">Введите количество очков</string>
+    <string name="hint_empty_inappropriate">Неподходящее число</string>
     <string name="hint_exit">Нажмите еще раз "Назад" чтобы выйти</string>
     <!--Buttons-->
     <string name="button_next">Далее</string>
