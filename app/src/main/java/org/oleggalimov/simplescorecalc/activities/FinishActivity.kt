@@ -33,13 +33,7 @@ class FinishActivity : AppCompatActivity() {
                 .replace("PLAYER_NAME",player)
                 .replace("PLAYER_SCORE",score)
         }
-        val onClickListenerImpl = View.OnClickListener  (
-            fun (v:View) {
-                if (v.id==R.id.restartButton) {
 
-                }
-            }
-        )
         restartButtonView.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
