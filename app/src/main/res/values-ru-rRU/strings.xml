@@ -3,6 +3,7 @@
     <string name="app_name" translatable="false">Счет!</string>
     <string name="final_congratulations">Игрок PLAYER_NAME выиграл!\nСчет: PLAYER_SCORE\nПоздравляем!</string>
     <string name="final_congratulations_draw">Ничья.\nСчет: PLAYER_SCORE\nПобедила дружба!</string>
+    <string name="final_draw">Ничья</string>
     <!--Questions-->
     <string name="question_gameTitle">Как называется игра?</string>
     <string name="question_playersCount">Сколько будет игроков?</string>
@@ -16,6 +17,8 @@
     <string name="hint_points_empty">Введите количество очков</string>
     <string name="hint_empty_inappropriate">Неподходящее число</string>
     <string name="hint_exit">Нажмите еще раз "Назад" чтобы выйти</string>
+    <string name="hint_clearTable">Нажмите еще раз чтобы очистить историю</string>
+    <string name="hint_clearTable_done">История очищена, последний результат сохранен!</string>
     <!--Buttons-->
     <string name="button_next">Далее</string>
     <string name="button_back">Назад</string>
@@ -34,4 +37,9 @@
     <string name="contextMenu_clear">Очистить</string>
     <!--content description-->
     <string name="star_desc">Поздравляю!</string>
+    <!--log table on final screen-->
+    <string name="final_logTable_tableName">Предыдущий результат</string>
+    <string name="final_logTable_title">Игра</string>
+    <string name="final_logTable_score">Счет</string>
+    <string name="final_logTable_player">Игрок</string>
 </resources>

@@ -3,6 +3,7 @@
     <string name="app_name" translatable="false">Score, pls!</string>
     <string name="final_congratulations">Player PLAYER_NAME wins!\nScore: PLAYER_SCORE\nCongratulations!</string>
     <string name="final_congratulations_draw">Draw.\nScore: PLAYER_SCORE\nFriendship wins!!</string>
+    <string name="final_draw">Draw</string>
     <!--Questions-->
     <string name="question_gameTitle">What is the name of the game?</string>
     <string name="question_playersCount">How many players will there be?</string>
@@ -16,6 +17,8 @@
     <string name="hint_points_empty">Insert the points</string>
     <string name="hint_empty_inappropriate">Inappropriate number</string>
     <string name="hint_exit">Press "Back" again to exit</string>
+    <string name="hint_clearTable">Tap again to clear history</string>
+    <string name="hint_clearTable_done">History was cleared, last game saved!</string>
 
     <!--Buttons-->
     <string name="button_next">Next</string>
@@ -35,4 +38,9 @@
     <string name="contextMenu_clear">Clear</string>
     <!--content description-->
     <string name="star_desc">Congratulations!</string>
+    <!--log table on final screen-->
+    <string name="final_logTable_tableName">Previous result</string>
+    <string name="final_logTable_title">Title</string>
+    <string name="final_logTable_score">Score</string>
+    <string name="final_logTable_player">Player</string>
 </resources>

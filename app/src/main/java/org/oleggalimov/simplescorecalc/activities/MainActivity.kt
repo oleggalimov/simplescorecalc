@@ -1,25 +1,19 @@
 package org.oleggalimov.simplescorecalc.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ContextMenu
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.oleggalimov.simplescorecalc.R
 import org.oleggalimov.simplescorecalc.utilities.toastWithVibration
-import android.widget.Toast
-
 
 
 class MainActivity : AppCompatActivity() {
-    private var isBackPressed:Long=0
-    private var gameTitleText="NoName"
-    private lateinit var gameTitle:TextView
+    private var isBackPressed: Long = 0
+    private var gameTitleText = "NoName"
+    private lateinit var gameTitle: TextView
     private lateinit var nextButton: Button
     private lateinit var mainConstraintLayout: ConstraintLayout
 
@@ -30,20 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         //
 
-        gameTitle  = findViewById(R.id.gameTitle)
+        gameTitle = findViewById(R.id.gameTitle)
         nextButton = findViewById(R.id.nextButton)
         mainConstraintLayout = findViewById(R.id.mainConstraintLayout)
         //регистрируем элемент для контекстного меню
         registerForContextMenu(gameTitle)
-            //еще вариант того же
+        //еще вариант того же
 //        gameTitle.setOnCreateContextMenuListener(this)
 
         nextButton.setOnClickListener {
             if (gameTitle.text.isBlank()) {
                 toastWithVibration(applicationContext, getString(R.string.hint_blankGameTitle), true)
-            }
-            else {
-                gameTitleText=gameTitle.text.toString()
+            } else {
+                gameTitleText = gameTitle.text.toString()
                 //очищаем view
 //                mainConstraintLayout.removeView(gameTitle)
                 //создаем анимацию
@@ -85,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         if (isBackPressed + 2000 > System.currentTimeMillis()) {
             System.exit(0)
         } else {
-            toastWithVibration(this, getString(R.string.hint_exit),false)
+            toastWithVibration(this, getString(R.string.hint_exit), false)
         }
         isBackPressed = System.currentTimeMillis()
     }

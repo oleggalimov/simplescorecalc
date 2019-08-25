@@ -1,22 +1,22 @@
 package org.oleggalimov.simplescorecalc.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.oleggalimov.simplescorecalc.adapters.GameAdapter
 import org.oleggalimov.simplescorecalc.R
+import org.oleggalimov.simplescorecalc.adapters.GameAdapter
 
 class GameActivity : AppCompatActivity() {
-    private lateinit var  gameTitleView: TextView
-    private lateinit var  playersListRecView: RecyclerView
-    private lateinit var  currentPlayer: TextView
-    private lateinit var  finishButton: Button
-    private lateinit var  backButton: Button
+    private lateinit var gameTitleView: TextView
+    private lateinit var playersListRecView: RecyclerView
+    private lateinit var currentPlayer: TextView
+    private lateinit var finishButton: Button
+    private lateinit var backButton: Button
     private lateinit var playersListAdapter: GameAdapter
     private var playersList = mutableListOf<Pair<String, Int>>()
 
@@ -37,39 +37,41 @@ class GameActivity : AppCompatActivity() {
 
         intent
             .getStringArrayExtra("playersList").orEmpty()
-            .mapTo(playersList, {player->Pair(player,0)})
+            .mapTo(playersList, { player -> Pair(player, 0) })
         playersListRecView.layoutManager = LinearLayoutManager(this)
         playersListAdapter = GameAdapter(playersList.toMutableList(), this)
         playersListRecView.adapter = playersListAdapter
-        gameTitleView.text=gameTitle
+        gameTitleView.text = gameTitle
 
         //вешаем листенеры на кнопки
-        val onClickListenerImpl = View.OnClickListener  (
+        val onClickListenerImpl = View.OnClickListener(
 
             fun(view: View?) {
                 when (view?.id) {
 
                     finishButton.id -> {
-                        this.playersList = playersListAdapter.getActualPlayerList() //TODO: find more elegant way to update the list from adapter
+                        this.playersList =
+                            playersListAdapter.getActualPlayerList() //TODO: find more elegant way to update the list from adapter
                         val winner = playersList.maxBy { it.second }
                         var player = winner?.first
                         val score = winner?.second
-                        playersList.forEach{
-                            if (player!=it.first && score==it.second) {
-                                player="DRAW"
+                        playersList.forEach {
+                            if (player != it.first && score == it.second) {
+                                player = "DRAW"
                             }
                         }
                         val intent = Intent("org.oleggalimov.simplescorecalc.actions.finishgame")
                         intent.putExtra("name", player)
                         intent.putExtra("score", score)
+                        intent.putExtra("title", gameTitle)
                         startActivity(intent)
                     }
                     backButton.id -> this.finish()
                 }
             }
         )
-        finishButton.setOnClickListener (onClickListenerImpl)
-        backButton.setOnClickListener (onClickListenerImpl)
+        finishButton.setOnClickListener(onClickListenerImpl)
+        backButton.setOnClickListener(onClickListenerImpl)
     }
 
     override
